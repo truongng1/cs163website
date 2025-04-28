@@ -1,97 +1,117 @@
+from dash import dcc, html, Input, Output
 import dash
-from dash import html, dcc
 import pandas as pd
 import plotly.express as px
 
-# Load and prepare the data
+# Load datasets
 calls_df = pd.read_csv("https://storage.googleapis.com/cs163-seniorproject.appspot.com/911_calls_clean.csv")
+weather_df = pd.read_csv("https://storage.googleapis.com/cs163-seniorproject.appspot.com/weather_clean.csv")
+
+# Prepare calls dataset
 calls_df['OFFENSE_DATE'] = pd.to_datetime(calls_df['OFFENSE_DATE'])
-calls_df['YearMonth'] = calls_df['OFFENSE_DATE'].dt.to_period('M').astype(str)
+calls_df['Year'] = calls_df['OFFENSE_DATE'].dt.year
+calls_df['Month'] = calls_df['OFFENSE_DATE'].dt.month
 
-# Group by Year-Month
-calls_per_month = calls_df.groupby('YearMonth').size().reset_index(name='Call Volume')
+calls_per_year = calls_df.groupby('Year').size().reset_index(name='Call Volume')
 
-# Create the figure
-fig = px.line(
-    calls_per_month,
-    x='YearMonth',
-    y='Call Volume',
-    title="911 Call Volume Over Time (2013–2024)",
-    labels={'YearMonth': 'Month', 'Call Volume': 'Number of 911 Calls'},
-)
+# Prepare weather dataset
+weather_df['DATE'] = pd.to_datetime(weather_df['DATE'])
+weather_df['Year'] = weather_df['DATE'].dt.year
+weather_df['Month'] = weather_df['DATE'].dt.month
 
-# Add big event markers
-fig.add_shape(
-    type="line",
-    x0="2020-03",
-    x1="2020-03",
-    y0=0, y1=1,
-    xref='x', yref='paper',
-    line=dict(color="red", width=2, dash="dash"),
-)
-fig.add_annotation(
-    x="2020-03",
-    y=1, yref='paper',
-    showarrow=False,
-    text="COVID Lockdown",
-    font=dict(color="red", size=12),
-)
-
-fig.add_shape(
-    type="line",
-    x0="2023-01",
-    x1="2023-01",
-    y0=0, y1=1,
-    xref='x', yref='paper',
-    line=dict(color="blue", width=2, dash="dot"),
-)
-fig.add_annotation(
-    x="2023-01",
-    y=0.95, yref='paper',
-    showarrow=False,
-    text="Winter Storm",
-    font=dict(color="blue", size=12),
-)
-
-fig.add_shape(
-    type="line",
-    x0="2020-09",
-    x1="2020-09",
-    y0=0, y1=1,
-    xref='x', yref='paper',
-    line=dict(color="orange", width=2, dash="dot"),
-)
-fig.add_annotation(
-    x="2020-09",
-    y=0.9, yref='paper',
-    showarrow=False,
-    text="Heat Wave",
-    font=dict(color="orange", size=12),
-)
-
-fig.update_layout(
-    title_font_size=28,
-    xaxis_title_font_size=20,
-    yaxis_title_font_size=20,
-    plot_bgcolor='white',
-    title_x=0.5,
-    font=dict(size=16),
-)
-
+# Layout for the page
 layout = html.Div([
     html.H2("911 Call Analysis (2013–2024)", style={'textAlign': 'center', 'marginTop': '20px'}),
+
     html.P(
         "This project analyzes 911 calls in San Jose from 2013 to 2024, comparing call patterns with weather conditions and economic factors. "
-        "By identifying how these elements influence call volume and location, we uncover peak times and high-risk areas. "
-        "These insights can help dispatchers better prepare for future demands, improving response efficiency across the city.",
-        style={'textAlign': 'center', 'width': '80%', 'margin': 'auto', 'marginTop': '10px'}
+        "Insights uncover peak times and high-risk areas, helping dispatchers better prepare for future demands.",
+        style={'textAlign': 'center', 'width': '80%', 'margin': 'auto', 'marginTop': '10px', 'fontSize': '20px'}
     ),
-    dcc.Graph(figure=fig, style={'marginTop': '40px'}),
+
+    html.Div([
+        html.Div([
+            dcc.Graph(id='monthly-call-graph', style={'height': '45vh'}),
+            dcc.Graph(id='monthly-temp-graph', style={'height': '45vh'}),
+        ], style={'width': '40%', 'display': 'inline-block', 'verticalAlign': 'top'}),
+
+        html.Div([
+            dcc.Graph(id='yearly-call-graph', style={'height': '92vh'}),
+        ], style={'width': '59%', 'display': 'inline-block', 'marginLeft': '1%'})
+    ], style={'marginTop': '40px'})
 ])
 
-# Register the page
 dash.register_page(
     __name__,
     path="/",
     name="Main Page"
 )
+
+
+# Callback
+@dash.callback(
+    Output('yearly-call-graph', 'figure'),
+    Output('monthly-call-graph', 'figure'),
+    Output('monthly-temp-graph', 'figure'),
+    Input('yearly-call-graph', 'hoverData')
+)
+def update_graphs(hoverData):
+    # Yearly graph
+    fig_year = px.line(
+        calls_per_year,
+        x='Year',
+        y='Call Volume',
+        markers=True,
+        title="911 Call Volume by Year",
+        labels={'Year': 'Year', 'Call Volume': 'Number of 911 Calls'}
+    )
+    fig_year.update_traces(marker=dict(size=10))
+    fig_year.update_layout(
+        plot_bgcolor='white',
+        title_x=0.5,
+        font=dict(size=16)
+    )
+
+    # Which year?
+    if hoverData is not None:
+        selected_year = hoverData['points'][0]['x']
+    else:
+        selected_year = 2020  # default
+
+    # Monthly calls for that year
+    filtered_calls = calls_df[calls_df['Year'] == selected_year]
+    monthly_calls = filtered_calls.groupby('Month').size().reset_index(name='Call Volume')
+
+    fig_month_calls = px.bar(
+        monthly_calls,
+        x='Month',
+        y='Call Volume',
+        title=f"Monthly 911 Calls in {selected_year}",
+        labels={'Month': 'Month', 'Call Volume': 'Number of 911 Calls'}
+    )
+    fig_month_calls.update_layout(
+        plot_bgcolor='white',
+        title_x=0.5,
+        font=dict(size=16),
+        xaxis=dict(tickmode='linear')
+    )
+
+    # Monthly temperature for that year
+    filtered_weather = weather_df[weather_df['Year'] == selected_year]
+    monthly_temp = filtered_weather.groupby('Month')['TAVG'].mean().reset_index()
+
+    fig_month_temp = px.bar(
+        monthly_temp,
+        x='Month',
+        y='TAVG',
+        title=f"Average Monthly Temperature in {selected_year}",
+        labels={'Month': 'Month', 'TAVG': 'Avg Temp (°F)'}
+    )
+    fig_month_temp.update_layout(
+        plot_bgcolor='white',
+        title_x=0.5,
+        font=dict(size=16),
+        xaxis=dict(tickmode='linear')
+    )
+
+    return fig_year, fig_month_calls, fig_month_temp
