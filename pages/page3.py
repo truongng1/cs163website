@@ -1,8 +1,6 @@
 import dash
 from dash import html, dcc
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
 
 dash.register_page(__name__, name="Analytical Methods")
