@@ -16,6 +16,7 @@ app.layout = html.Div([
             html.Li(
                 dcc.Link(
                     page["name"],
+
                     href=page["relative_path"],
                     style={"color": "white", "textDecoration": "none", "padding": "0 15px"}
                 )
