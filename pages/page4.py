@@ -10,18 +10,18 @@ layout = html.Div([
         html.Div([
             html.Img(src='../static/result_1_1.png',
                      style={
-                         'maxWidth': '85%',  # Adjust width to fit side by side
+                         'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
                          'margin': '10px'
                      }),
             html.H3('Clear Seasonal fluctuations, with recurring peaks and dips that align with the weather patterns.\n',
-                    style={'textAlign': 'center', "fontFamily": "Courier New"})
-        ], style={'textAlign': 'center', 'margin': '10px'}),
+                    style={"fontFamily": "Courier New"})
+        ], style={'margin': '10px'}),
 
         html.Div([
             html.Img(src='../static/result_1_2.png',
                      style={
-                         'maxWidth': '85%',  # Adjust width to fit side by side
+                         'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
                          'margin': '10px'
                      }),
@@ -29,8 +29,8 @@ layout = html.Div([
                 'Call volumes rise in mid-year but decline during the holiday season (November and December)', html.Br(),
                 'Contrary to common expectations of increased holiday-related incidents.', html.Br(),
                 'Warmer weather may lead to more outdoor activities, resulting in higher 911 call volumes.'
-            ], style={'textAlign': 'center', "fontFamily": "Courier New"})
-        ], style={'textAlign': 'center', 'margin': '10px'})
+            ], style={"fontFamily": "Courier New"})
+        ], style={'margin': '10px'})
 
     ], style={
         'display': 'flex',  # Enables side-by-side layout
@@ -44,7 +44,7 @@ layout = html.Div([
         html.Div([
             html.Img(src='../static/result_1_3.png',
                      style={
-                         'maxWidth': '85%',  # Adjust width to fit side by side
+                         'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
                          'margin': '10px'
                      }),
@@ -52,7 +52,7 @@ layout = html.Div([
         html.Div([
             html.Img(src='../static/result_1_4.png',
                      style={
-                         'maxWidth': '85%',  # Adjust width to fit side by side
+                         'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
                          'margin': '10px'
                      }),
@@ -63,4 +63,5 @@ layout = html.Div([
         'alignItems': 'flex-start',  # Aligns the images vertically
         'marginTop': '20px'
     }),
+
 ])

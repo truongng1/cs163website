@@ -1,14 +1,7 @@
 import dash
 from dash import Dash, html, dcc
-import flask
 
-server = flask.Flask(__name__)
-
-app = Dash(__name__, server = server,use_pages=True)
-
-@server.route('/static/<path:path>')
-def serve_static(path):
-    return flask.send_from_directory('static', path)
+app = Dash(__name__,use_pages=True)
 
 app.layout = html.Div([
     html.Nav([
