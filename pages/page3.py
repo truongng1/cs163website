@@ -67,19 +67,38 @@ layout = html.Div([
 
     html.H2("Method 2: Z-score test"),
     html.Li("To find out which months had unusually high or low 911 call activity, we used a z-score test on the average daily call volume for each month.", style={"fontSize": "18px"}),
-
+    html.Br(),
     html.Li("A z-score tells us how far each month’s call volume is from the overall average, measured in standard deviations. This helps highlight months that stand out.", style={"fontSize": "18px"}),
-
+    html.Br(),
     html.Li("Since Z-score assumes a roughly normal distribution, we first analyzed the distribution of 911 calls per day. The distribution was slightly right-skewed but overall bell-shaped, making it appropriate for Z-score analysis."),
-
+    html.Br(),
     html.H4("Distribution of Daily 911 Calls (With outliers)", style={"marginTop": "20px"}),
 
     # Replace this with your actual bell curve figure
-    html.Img(src = '../static/method_2_1.png'),
+    html.Img(src = '../static/method_2_1.png',
+             style = {
+                'maxWidth': '80%',
+                'height': 'auto',
+                'margin': '10px'
+             }),
 
     html.Li("To improve accuracy and reduce the impact of extreme values, we removed outliers using the Interquartile Range (IQR) method before analysis."),
 
-    
+    html.Img(src = '../static/outliersFormula.png',
+            style={
+                    'maxWidth': '80%',  # Adjust width to fit side by side
+                    'height': 'auto',
+                    'margin': '10px'
+            }),
 
+    
+    html.H4("Distribution of Daily 911 Calls (Outliers Removed)", style={"marginTop": "20px"}),
+    # Replace this with your actual bell curve figure
+    html.Img(src = '../static/method_2_2.png',
+             style = {
+                'maxWidth': '80%',
+                'height': 'auto',
+                'margin': '10px'
+             }),
 
 ])
