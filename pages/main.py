@@ -36,12 +36,12 @@ layout = html.Div([
     ]),
 
     html.H1(
-        '3,000,000+ calls from 2013 - 2024',
+        '3,000,000+ calls in 11 years',
         style={
             'textAlign': 'center',
-            'fontSize': '50px',  # Large font size
-            'fontWeight': 'bold',  # Bold text
-            'color': '#FF5733',  # Eye-catching color (orange-red)
+            'fontSize': '50px',  
+            'fontWeight': 'bold',
+            'color': '#FF5733',
             'marginTop': '20px'
         }
     ),
@@ -49,9 +49,9 @@ layout = html.Div([
         '830+ calls per day',
         style={
             'textAlign': 'center',
-            'fontSize': '40px',  # Slightly smaller font size
-            'fontWeight': 'bold',  # Bold text
-            'color': '#3498DB',  # Eye-catching color (blue)
+            'fontSize': '40px',  
+            'fontWeight': 'bold',  
+            'color': '#3498DB',  
             'marginTop': '10px'
         }
     ),
@@ -61,7 +61,7 @@ layout = html.Div([
         html.Img(
             src='../static/main_1.png',
             style={
-                'width': '45%',  # Adjust width to fit side by side
+                'width': '45%',  
                 'height': 'auto',
                 'margin': '10px'
             }
@@ -69,15 +69,15 @@ layout = html.Div([
         html.Img(
             src='../static/main_2.png',
             style={
-                'width': '45%',  # Adjust width to fit side by side
+                'width': '45%', 
                 'height': 'auto',
                 'margin': '10px'
             }
         ),
     ], style={
-        'display': 'flex',  # Enables side-by-side layout
-        'justifyContent': 'center',  # Centers the images horizontally
-        'alignItems': 'center',  # Aligns the images vertically
+        'display': 'flex',  
+        'justifyContent': 'center',  
+        'alignItems': 'center',  
         'marginTop': '20px'
     }),
     ]),
