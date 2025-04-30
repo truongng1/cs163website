@@ -21,13 +21,19 @@ weather_df['Month'] = weather_df['DATE'].dt.month
 
 # Layout for the page
 layout = html.Div([
-    html.H2("911 Call Analysis (2013–2024)", style={'textAlign': 'center', 'marginTop': '20px'}),
+    html.H1("911 Call Analysis (2013–2024)", style={'textAlign': 'center', 'marginTop': '20px'}),
 
     html.P(
         "This project analyzes 911 calls in San Jose from 2013 to 2024, comparing call patterns with weather conditions and economic factors. "
         "Insights uncover peak times and high-risk areas, helping dispatchers better prepare for future demands.",
         style={'textAlign': 'center', 'width': '80%', 'margin': 'auto', 'marginTop': '10px', 'fontSize': '20px'}
     ),
+    html.Div([
+        html.Img(
+            src="../static/banner.png",
+            style={'width': '50%', 'height': 'auto', 'marginBottom': '20px', 'display': 'block', 'marginLeft': 'auto', 'marginRight': 'auto'}
+        )
+    ]),
 
     html.Div([
         html.Div([

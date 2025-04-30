@@ -141,4 +141,56 @@ layout = html.Div([
         'alignItems': 'flex-start',  # Aligns the images vertically
         'marginTop': '20px'
     }),
-])
+
+    html.H2("Machine Learning Prediction"),
+    html.P("We deployed machine learning models to predict daily 911 call volumes based temperature, holidays"),
+    html.P("We started with linear regression but the models explained only a small portion of the variance in call volume."),
+
+    html.Ul([
+        html.Li("Linear Regression: R² = 0.1819"),
+        html.Img(src = '../static/method_4_1.png',
+                style = {
+                    'maxWidth': '45%',
+                    'height': 'auto',
+                    'margin': '10px'
+                })
+        ]),
+
+    html.P('Consider the correlation coefficnent and model result, we tried using non-linear models'),
+    html.Ul([
+        html.Li("Random Forest: R² = 0.1681"),
+        html.Img(src = '../static/method_4_2.png',
+                style = {
+                    'maxWidth': '45%',
+                    'height': 'auto',
+                    'margin': '10px'
+                })
+        ]),
+
+
+    html.P("The Random Forest model's performance is similar to the linear regression model... suggesting that the relationship might not be strongly non-linear"),
+
+    html.P('We tried adding other features...'),
+    html.Ul([
+        html.Li('Month'),
+        html.Li('Day of the week'),
+        html.Li('Holidays'),
+        html.Li('Average Daily Temperature'),
+        html.Li('Weather: Heatwave, Storm'),
+        html.Li('Unemployment Rate')
+    ]),
+
+    html.P('This time we used ensemble modeling, combining Random Forest and Gradient Boosting to make prediction...'),
+    html.Ul([
+        html.Li('Random Forest R²: 0.1780'),
+        html.Li('Gradient Boosting R²: 0.1128'),
+        html.Li('Ensemble R²: 0.1620'),
+        html.Img(src = '../static/method_4_3.png',
+                 style = {
+                     'maxWidth': '70%',
+                     'height': 'auto',
+                     'margin': '10px'
+                 })
+    ]),
+    
+], style = {'fontSize': '18px'})
