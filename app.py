@@ -40,6 +40,6 @@ app.layout = html.Div([
 
     html.Div(dash.page_container, style={"padding": "20px"})
 ])
-
+server = app.server
 if __name__ == '__main__':
     app.run(debug=True)

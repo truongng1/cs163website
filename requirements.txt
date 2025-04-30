@@ -2,8 +2,8 @@ dash
 plotly
 pandas
 matplotlib
-seaborn
 Flask
 gunicorn
 google-cloud-storage
 statsmodels
+numpy
