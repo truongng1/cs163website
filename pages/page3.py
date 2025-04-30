@@ -49,20 +49,22 @@ fig.update_layout(
 # Layout
 # ------------------
 layout = html.Div([
-    html.H1("Analytical Methods", style={"textAlign": "center", "marginBottom": "20px"}),
-    html.H2("Correlation Analysis: "),
 
-    html.Ul([
-        html.Li("Input: Average Daily Temperature, Call Volume", style={"fontSize": "18px"}),
-        html.Br(),
-        html.Li("Output: Correlation Coefficient (~0.41)", style={"fontSize": "18px"}),
-        html.Br(),
-        html.Li("Purpose: Determine if warmer weather increases 911 call volumes", style={"fontSize": "18px"}),
-        html.Br(),
-        html.Li(
-            "Explanation: The correlation coefficient measures the linear relationship between average daily temperature and 911 call volume. A ~0.41 value indicates a moderate positive correlation, suggesting seasonal influences on emergency call patterns.",style={"fontSize": "18px"})
-    ]),
-    dcc.Graph(figure=fig),
+    #---------- moved under machine learning --------------
+    # html.H1("Analytical Methods", style={"textAlign": "center", "marginBottom": "20px"}),
+    # html.H2("Correlation Analysis: "),
+
+    # html.Ul([
+    #     html.Li("Input: Average Daily Temperature, Call Volume", style={"fontSize": "18px"}),
+    #     html.Br(),
+    #     html.Li("Output: Correlation Coefficient (~0.41)", style={"fontSize": "18px"}),
+    #     html.Br(),
+    #     html.Li("Purpose: Determine if warmer weather increases 911 call volumes", style={"fontSize": "18px"}),
+    #     html.Br(),
+    #     html.Li(
+    #         "Explanation: The correlation coefficient measures the linear relationship between average daily temperature and 911 call volume. A ~0.41 value indicates a moderate positive correlation, suggesting seasonal influences on emergency call patterns.",style={"fontSize": "18px"})
+    # ]),
+    # dcc.Graph(figure=fig),
 
 
     html.H2("Z-score test: "),
@@ -138,6 +140,21 @@ layout = html.Div([
         'alignItems': 'flex-start',  # Aligns the images vertically
         'marginTop': '20px'
     }),
+
+    html.H1("Analytical Methods", style={"textAlign": "center", "marginBottom": "20px"}),
+    html.H2("Correlation Analysis: "),
+
+    html.Ul([
+        html.Li("Input: Average Daily Temperature, Call Volume", style={"fontSize": "18px"}),
+        html.Br(),
+        html.Li("Output: Correlation Coefficient (~0.41)", style={"fontSize": "18px"}),
+        html.Br(),
+        html.Li("Purpose: Determine if warmer weather increases 911 call volumes", style={"fontSize": "18px"}),
+        html.Br(),
+        html.Li(
+            "Explanation: The correlation coefficient measures the linear relationship between average daily temperature and 911 call volume. A ~0.41 value indicates a moderate positive correlation, suggesting seasonal influences on emergency call patterns.",style={"fontSize": "18px"})
+    ]),
+    dcc.Graph(figure=fig),
 
     html.H2("Machine Learning Prediction"),
     html.P("We deployed machine learning models to predict daily 911 call volumes based temperature, holidays"),
