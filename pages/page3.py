@@ -50,7 +50,7 @@ fig.update_layout(
 # ------------------
 layout = html.Div([
     html.H1("Analytical Methods", style={"textAlign": "center", "marginBottom": "20px"}),
-    html.H2("Method 1: Correlation Analysis"),
+    html.H2("Correlation Analysis: "),
 
     html.Ul([
         html.Li("Input: Average Daily Temperature, Call Volume", style={"fontSize": "18px"}),
@@ -65,7 +65,7 @@ layout = html.Div([
     dcc.Graph(figure=fig),
 
 
-    html.H2("Method 2: Z-score test"),
+    html.H2("Z-score test: "),
     html.Li("To find out which months had unusually high or low 911 call activity, we used a z-score test on the average daily call volume for each month.", style={"fontSize": "18px"}),
     html.Br(),
     html.Li("A z-score tells us how far each month’s call volume is from the overall average, measured in standard deviations. This helps highlight months that stand out.", style={"fontSize": "18px"}),
@@ -75,23 +75,31 @@ layout = html.Div([
     html.H4("Distribution of Daily 911 Calls (With outliers)", style={"marginTop": "20px"}),
 
     # Replace this with your actual bell curve figure
-    html.Img(src = '../static/method_2_1.png',
-             style = {
-                'maxWidth': '80%',
-                'height': 'auto',
-                'margin': '10px'
-             }),
+    html.Div([
+        html.Img(src = '../static/method_2_1.png',
+            style = {
+            'maxWidth': '40%',
+            'height': 'auto',
+            'margin': '10px'
+            }),
 
-    html.Li("To improve accuracy and reduce the impact of extreme values, we removed outliers using the Interquartile Range (IQR) method before analysis."),
-
-    html.Img(src = '../static/outliersFormula.png',
+        html.Img(src = '../static/outliersFormula.png',
             style={
-                    'maxWidth': '80%',  # Adjust width to fit side by side
+                    'maxWidth': '40%',  # Adjust width to fit side by side
                     'height': 'auto',
                     'margin': '10px'
             }),
 
+    ], style={
+        'display': 'flex',  # Enables side-by-side layout
+        'justifyContent': 'center',  # Centers the images horizontally
+        'alignItems': 'flex-start',  # Aligns the images vertically
+        'marginTop': '20px'
+    }),
     
+    html.Li("To improve accuracy and reduce the impact of extreme values, we removed outliers using the Interquartile Range (IQR) method before analysis."),
+    html.Br(),
+
     html.H4("Distribution of Daily 911 Calls (Outliers Removed)", style={"marginTop": "20px"}),
     # Replace this with your actual bell curve figure
     html.Img(src = '../static/method_2_2.png',
@@ -101,4 +109,36 @@ layout = html.Div([
                 'margin': '10px'
              }),
 
+
+    html.H2("Seasonal Decomposition"),
+    html.P("We applied seasonal decomposition to the time series of daily 911 call volumes and daily average temperature to identify long-term trends, seasonal patterns, and irregular fluctuations."),
+    html.P("This method breaks each time series into three components: trend, seasonality, and residuals. By comparing the decomposed patterns of 911 calls and weather, we can better understand how external factors like temperature influence emergency call behavior over time."),
+    html.P("This helps distinguish between temporary spikes (like a heatwave) versus consistent seasonal effects (e.g., higher call volumes in summer)."),
+    html.P("This insight is useful for forecasting and resource planning."),
+    # (Optional graph placeholder, if you have one)
+    # html.Img(src='/assets/seasonal_decomposition_calls.png', style={'width': '80%', 'margin': 'auto', 'display': 'block'}),
+
+    html.Div([
+        html.Div([
+            html.Img(src='../static/result_1_3.png',
+                     style={
+                         'maxWidth': '100%',  # Adjust width to fit side by side
+                         'height': 'auto',
+                         'margin': '10px'
+                     }),
+        ], style={'textAlign': 'center', 'margin': '10px'}),
+        html.Div([
+            html.Img(src='../static/result_1_4.png',
+                     style={
+                         'maxWidth': '100%',  # Adjust width to fit side by side
+                         'height': 'auto',
+                         'margin': '10px'
+                     }),
+        ], style={'textAlign': 'center', 'margin': '10px'}),
+    ], style={
+        'display': 'flex',  # Enables side-by-side layout
+        'justifyContent': 'center',  # Centers the images horizontally
+        'alignItems': 'flex-start',  # Aligns the images vertically
+        'marginTop': '20px'
+    }),
 ])

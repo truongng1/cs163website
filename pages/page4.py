@@ -1,11 +1,11 @@
 import dash
-from dash import html
+from dash import html, dcc
 
 dash.register_page(__name__, name="Major Findings")
 
 layout = html.Div([
-    html.H2("Major Findings", style={"textAlign": "center", "marginBottom": "20px", "fontFamily": "Courier New"}),
-    html.H2("Seasonal Patterns in 911 Call Volume, particularly the impact of Weather and Holidays", style={"fontFamily": "Courier New"}),
+    html.H1("Major Findings", style={"textAlign": "center", "marginBottom": "20px", "fontFamily": "Nunito"}),
+    html.H2("Seasonal Patterns in 911 Call Volume, particularly the impact of Weather and Holidays", style={'textAlign': 'center',"fontFamily": "Nunito"}),
     html.Div([
         html.Div([
             html.Img(src='../static/result_1_1.png',
@@ -14,8 +14,8 @@ layout = html.Div([
                          'height': 'auto',
                          'margin': '10px'
                      }),
-            html.H3('Clear Seasonal fluctuations, with recurring peaks and dips that align with the weather patterns.\n',
-                    style={"fontFamily": "Courier New"})
+            html.Li('Clear Seasonal fluctuations, with recurring peaks and dips that align with the weather patterns.\n',
+                    style={"fontFamily": "Nunito"})
         ], style={'margin': '10px'}),
 
         html.Div([
@@ -25,11 +25,17 @@ layout = html.Div([
                          'height': 'auto',
                          'margin': '10px'
                      }),
-            html.H3([
-                'Call volumes rise in mid-year but decline during the holiday season (November and December)', html.Br(),
-                'Contrary to common expectations of increased holiday-related incidents.', html.Br(),
-                'Warmer weather may lead to more outdoor activities, resulting in higher 911 call volumes.'
-            ], style={"fontFamily": "Courier New"})
+            html.Li('Call volumes rise in mid-year but decline during the holiday season (November and December)',
+                    style = {'fontFamily': 'Nunito'}),
+            html.Br(),
+
+            html.Li('Contrary to common expectations of increased holiday-related incidents.',
+                    style = {'fontFamily': 'Nunito'}),
+            html.Br(),
+
+            html.Li('Warmer weather may lead to more outdoor activities, resulting in higher 911 call volumes.',
+                    style = {'fontFamily': 'Nunito'}),
+
         ], style={'margin': '10px'})
 
     ], style={
@@ -39,10 +45,9 @@ layout = html.Div([
         'marginTop': '20px'
     }),
 
-
     html.Div([
         html.Div([
-            html.Img(src='../static/result_1_3.png',
+            html.Img(src='../static/result_1_5.png',
                      style={
                          'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
@@ -50,7 +55,7 @@ layout = html.Div([
                      }),
         ], style={'textAlign': 'center', 'margin': '10px'}),
         html.Div([
-            html.Img(src='../static/result_1_4.png',
+            html.Img(src='../static/result_1_5.png',
                      style={
                          'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
@@ -63,5 +68,31 @@ layout = html.Div([
         'alignItems': 'flex-start',  # Aligns the images vertically
         'marginTop': '20px'
     }),
+
+
+    # html.Div([
+    #     html.Div([
+    #         html.Img(src='../static/result_1_3.png',
+    #                  style={
+    #                      'maxWidth': '100%',  # Adjust width to fit side by side
+    #                      'height': 'auto',
+    #                      'margin': '10px'
+    #                  }),
+    #     ], style={'textAlign': 'center', 'margin': '10px'}),
+    #     html.Div([
+    #         html.Img(src='../static/result_1_4.png',
+    #                  style={
+    #                      'maxWidth': '100%',  # Adjust width to fit side by side
+    #                      'height': 'auto',
+    #                      'margin': '10px'
+    #                  }),
+    #     ], style={'textAlign': 'center', 'margin': '10px'}),
+    # ], style={
+    #     'display': 'flex',  # Enables side-by-side layout
+    #     'justifyContent': 'center',  # Centers the images horizontally
+    #     'alignItems': 'flex-start',  # Aligns the images vertically
+    #     'marginTop': '20px'
+    # }),
+
 
 ])
