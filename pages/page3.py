@@ -112,11 +112,8 @@ layout = html.Div([
 
     html.H2("Seasonal Decomposition"),
     html.P("We applied seasonal decomposition to the time series of daily 911 call volumes and daily average temperature to identify long-term trends, seasonal patterns, and irregular fluctuations."),
-    html.P("This method breaks each time series into three components: trend, seasonality, and residuals. By comparing the decomposed patterns of 911 calls and weather, we can better understand how external factors like temperature influence emergency call behavior over time."),
+    html.P("This method shows three components: trend, seasonality, and residuals."),
     html.P("This helps distinguish between temporary spikes (like a heatwave) versus consistent seasonal effects (e.g., higher call volumes in summer)."),
-    html.P("This insight is useful for forecasting and resource planning."),
-    # (Optional graph placeholder, if you have one)
-    # html.Img(src='/assets/seasonal_decomposition_calls.png', style={'width': '80%', 'margin': 'auto', 'display': 'block'}),
 
     html.Div([
         html.Div([
