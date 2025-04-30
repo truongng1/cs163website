@@ -65,5 +65,29 @@ layout = html.Div([
             html.Img(src='../static/result_1_6.png', style={"width": "100%"})
         ], style={"width": "50%", "padding": "10px"})
     ], style={'display': 'flex', 'justifyContent': 'center'}),
+    html.H2(" Correlation between Unemployment, Poverty, CPI and 911 Call Volume",
+            style={"textAlign": "left", "marginLeft": "40px"}),
+    html.Div([
+            html.Img(src='../static/result_2_3.png',
+                     style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+        ], style={"width": "80%", "padding": "10px", "margin": "0 auto"}),
+    html.Ul([
+        html.Li("The analysis shows a very weak to no correlation between unemployment, poverty, CPI with 911 call volume. This suggests that these economic indicators alone do not strongly influence emergency call frequency. It's likely that other factors—such as time of year, weather, social events, or unpredictable incidents—play a more significant role, indicating that 911 call volume may be inherently difficult to predict due to its random and situational nature.",
+                style={"fontSize": "18px"}),
+        html.Br(),
+    html.Div([
+            html.Img(src='../static/result_2_1.png',
+                     style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+        ], style={"width": "80%", "padding": "10px", "margin": "0 auto"}),
+        html.Li("The bar chart shows the coefficients from a linear regression model, which quantify the impact of each feature on 911 call volume.",
+                style={"fontSize": "18px"}),
+        html.Br(),
+        html.Div([
+            html.Img(src='../static/result_2_2.png',
+                     style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+        ], style={"width": "50%", "padding": "10px", "margin": "0 auto"}),
+        html.Li("However, coefficient evaluation needs some more scaling",
+                style={"fontSize": "18px"}),
+    ], style={"paddingLeft": "30px"}),
 
 ])
