@@ -35,6 +35,54 @@ layout = html.Div([
         )
     ]),
 
+    html.H1(
+        '3,000,000+ calls from 2013 - 2024',
+        style={
+            'textAlign': 'center',
+            'fontSize': '50px',  # Large font size
+            'fontWeight': 'bold',  # Bold text
+            'color': '#FF5733',  # Eye-catching color (orange-red)
+            'marginTop': '20px'
+        }
+    ),
+    html.H1(
+        '830+ calls per day',
+        style={
+            'textAlign': 'center',
+            'fontSize': '40px',  # Slightly smaller font size
+            'fontWeight': 'bold',  # Bold text
+            'color': '#3498DB',  # Eye-catching color (blue)
+            'marginTop': '10px'
+        }
+    ),
+
+    html.Div([
+    html.Div([
+        html.Img(
+            src='../static/main_1.png',
+            style={
+                'width': '45%',  # Adjust width to fit side by side
+                'height': 'auto',
+                'margin': '10px'
+            }
+        ),
+        html.Img(
+            src='../static/main_2.png',
+            style={
+                'width': '45%',  # Adjust width to fit side by side
+                'height': 'auto',
+                'margin': '10px'
+            }
+        ),
+    ], style={
+        'display': 'flex',  # Enables side-by-side layout
+        'justifyContent': 'center',  # Centers the images horizontally
+        'alignItems': 'center',  # Aligns the images vertically
+        'marginTop': '20px'
+    }),
+    ]),
+
+    
     html.Div([
         html.Div([
             dcc.Graph(id='monthly-call-graph', style={'height': '45vh'}),
