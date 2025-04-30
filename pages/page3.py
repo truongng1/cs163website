@@ -63,13 +63,10 @@ layout = html.Div([
 
     html.H4("Distribution of Daily 911 Calls (Outliers Removed)", style={"marginTop": "20px"}),
     # Replace this with your actual bell curve figure
-    html.Img(src = '../static/method_2_2.png',
-             style = {
-                'maxWidth': '80%',
-                'height': 'auto',
-                'margin': '10px'
-             }),
-
+    html.Div([
+            html.Img(src='../static/method_2_2.png',
+                     style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+        ], style={"width": "50%", "padding": "10px", "margin": "0 auto"}),
 
     html.H2("Seasonal Decomposition"),
     html.P("We applied seasonal decomposition to the time series of daily 911 call volumes and daily average temperature to identify long-term trends, seasonal patterns, and irregular fluctuations."),
@@ -113,13 +110,10 @@ layout = html.Div([
         html.Li(
             "Explanation: The correlation coefficient measures the linear relationship between average daily temperature and 911 call volume. A ~0.41 value indicates a moderate positive correlation, suggesting seasonal influences on emergency call patterns.",style={"fontSize": "18px"})
     ]),
-    html.Img(src='../static/page3_correlation.png',
-             style={
-                 'width': '50%',
-                 'height': 'auto',
-                 'margin': '10px'
-             }),
-
+    html.Div([
+            html.Img(src='../static/page3_correlation.png',
+                     style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+        ], style={"width": "70%", "padding": "10px", "margin": "0 auto"}),
     html.H2("Machine Learning Prediction"),
     html.P("We deployed machine learning models to predict daily 911 call volumes based temperature, holidays"),
     html.P("We started with linear regression but the models explained only a small portion of the variance in call volume."),
@@ -127,23 +121,15 @@ layout = html.Div([
     html.Ul([
         html.Li("Linear Regression: R² = 0.1819"),
         html.Img(src = '../static/method_4_1.png',
-                style = {
-                    'maxWidth': '45%',
-                    'height': 'auto',
-                    'margin': '10px'
-                })
-        ]),
+                style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+        ], style={"width": "60%", "padding": "10px", "margin": "0 auto"}),
 
     html.P('Consider the correlation coefficnent and model result, we tried using non-linear models'),
     html.Ul([
         html.Li("Random Forest: R² = 0.1681"),
-        html.Img(src = '../static/method_4_2.png',
-                style = {
-                    'maxWidth': '45%',
-                    'height': 'auto',
-                    'margin': '10px'
-                })
-        ]),
+        html.Img(src='../static/method_4_2.png',
+                 style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+    ], style={"width": "60%", "padding": "10px", "margin": "0 auto"}),
 
 
     html.P("The Random Forest model's performance is similar to the linear regression model... suggesting that the relationship might not be strongly non-linear"),
@@ -163,12 +149,8 @@ layout = html.Div([
         html.Li('Random Forest R²: 0.1780'),
         html.Li('Gradient Boosting R²: 0.1128'),
         html.Li('Ensemble R²: 0.1620'),
-        html.Img(src = '../static/method_4_3.png',
-                 style = {
-                     'maxWidth': '70%',
-                     'height': 'auto',
-                     'margin': '10px'
-                 })
-    ]),
+        html.Img(src='../static/method_4_3.png',
+                 style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+    ], style={"width": "60%", "padding": "10px", "margin": "0 auto"}),
     
 ], style = {'fontSize': '18px'})

@@ -30,9 +30,8 @@ layout = html.Div([
         html.Div([
             html.Img(src='../static/result_1_1.png',
                      style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
-        ], style={"width": "50%", "padding": "10px", "display": "flex", "justifyContent": "center",
-                  "alignItems": "center"}),
-    ], style={'display': 'flex', 'justifyContent': 'flex-start'}),
+        ], style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
+        ], style={"width": "50%", "padding": "10px", "margin": "0 auto"}),
 
     html.Div([
         html.Ul([
@@ -43,7 +42,7 @@ layout = html.Div([
         html.Div([
             html.Img(src='../static/result_1_2.png',
                      style={"width": "100%", "display": "flex", "justifyContent": "center", "alignItems": "center"})
-        ], style={"width": "50%", "padding": "10px", "display": "flex", "justifyContent": "center", "alignItems": "center"}),
+        ], style={"width": "50%", "padding": "10px", "margin": "0 auto"}),
     ]),
 
     html.Ul([
@@ -67,8 +66,4 @@ layout = html.Div([
         ], style={"width": "50%", "padding": "10px"})
     ], style={'display': 'flex', 'justifyContent': 'center'}),
 
-    html.Br(),
-
-    html.H2("Correlation between Unemployment, Poverty, Inflation Rate, Income, GDP, and 911 Call Volume",
-            style={"textAlign": "left", "marginLeft": "40px"}),
 ])
