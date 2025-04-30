@@ -120,7 +120,7 @@ layout = html.Div([
 
     html.Div([
         html.Div([
-            html.Img(src='../static/result_1_3.png',
+            html.Img(src='../static/method_3_1.png',
                      style={
                          'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
@@ -128,7 +128,7 @@ layout = html.Div([
                      }),
         ], style={'textAlign': 'center', 'margin': '10px'}),
         html.Div([
-            html.Img(src='../static/result_1_4.png',
+            html.Img(src='../static/method_3_2.png',
                      style={
                          'maxWidth': '100%',  # Adjust width to fit side by side
                          'height': 'auto',
