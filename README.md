@@ -1,4 +1,4 @@
-# 🚨 Crime Trends & Emergency Call Analysis in San Jose
+# 🚨 Emergency Call Analysis in San Jose
 
 This project explores and visualizes patterns in 911 emergency calls in San Jose from 2013 to 2024. It investigates how external factors such as weather, unemployment, income, CPI, and poverty correlate with call volume and public safety risk. The results are presented in an interactive web dashboard.
 
