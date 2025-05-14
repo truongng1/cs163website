@@ -12,13 +12,6 @@ This project explores and visualizes patterns in 911 emergency calls in San Jose
 
 - Python 3.9+
 - pip (Python package manager)
-- (Recommended) Virtual environment tool: `venv` or `conda`
-
-### 📦 Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
 
 ### ▶️ Run Locally
 
