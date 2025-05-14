@@ -1,9 +1,0 @@
-dash
-plotly
-pandas
-matplotlib
-Flask
-gunicorn
-google-cloud-storage
-statsmodels
-numpy

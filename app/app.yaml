@@ -1,0 +1,13 @@
+runtime: python310
+
+entrypoint: gunicorn app:server
+
+instance_class: F4_1G
+
+automatic_scaling:
+  target_cpu_utilization: 0.90
+  min_instances: 1
+  max_instances: 2
+
+env_variables:
+  BUCKET_NAME: 'cs163-website.appspot.com'

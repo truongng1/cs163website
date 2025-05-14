@@ -1,0 +1,14 @@
+CPI Rate Cleaning Explanation
+The Consumer Price Index (CPI) rate was compiled from two separate raw data sources, due to the unavailability of a single consistent dataset for San Jose:
+
+2015–2024 CPI Rates (San Jose)
+Source: https://storage.googleapis.com/cs163-seniorproject.appspot.com/dataset/cpi_rate/raw_dataset/2015-2024.xlsx
+
+This Excel file contains CPI data specific to San Jose from 2015 through 2024.
+
+2013–2015 CPI Rates (Bay Area)
+Source: https://storage.googleapis.com/cs163-seniorproject.appspot.com/dataset/cpi_rate/raw_dataset/consumerpriceindex_sanfrancisco_table%20(1).pdf
+
+Because historical CPI data for San Jose (2013–2015) was not available, data from the Bay Area (San Francisco region) was used as a proxy for this time period.
+
+Note: The values for 2013–2015 were manually transcribed from the PDF source to ensure continuity and completeness of the CPI time series.
